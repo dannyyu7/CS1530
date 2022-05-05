@@ -1,0 +1,12 @@
+The Catcher in the Rye|J.D. Salinger|fiction|catcher.jpg
+The Aleph and other stories|Jorge Luis Borges|fiction|aleph.png
+Why We Sleep|Matthew Walker|nonfiction|sleep.jpg
+Ficciones|Jorge Luis Borges|fiction|ficciones.png
+Symbolic Exchange and Death|Jean Baudrillard|nonfiction|symbolic.png
+Pitch Anything|Oren Klaff|self-help|pitch.jpg
+The Very Hungry Caterpillar|Eric Carle|kids|hungry.png
+Cracking the Coding Interview|Gayle Laakmann McDowell|self-help|interview.jpg
+The Interpretation of Dreams|Sigmund Freud|nonfiction|dreams.png
+Thinking, Fast and Slow|Daniel Kahneman|nonfiction|thinking.jpg
+The Master and Margarita|Mikhail Bulgakov|fiction|master.png
+Everyone Poops|Taro Gomi|kids|everyonepoops.jpg

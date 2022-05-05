@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %}showbooks{% endblock %}
+{% block body %}
+{% for user in users %}
+  <p>USERNAME={{ user.username }} | PASSWORD HASH={{ user.pw_hash }}</p>
+{% endfor %}
+{% endblock %}

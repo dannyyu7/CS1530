@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block title %}User Management{% endblock %}
+{% block body %}
+{% with messages = get_flashed_messages() %}
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+      {% if messages %}
+        <div class="card success-flash">
+          <div class="card-content">
+            {% for message in messages %}
+              <p style="color:white;">{{ message }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      <ul class="collection with-header" id="eventsList">
+        <li class="collection-header"><h4><a href="/loadusers/">Load some users</a></h4></li>
+      </ul>
+      <ul class="collection with-header" id="eventsList">
+        <li class="collection-header"><h4><a href="/loadbooks/">Load some books</a></h4></li>
+      </ul>
+      <ul class="collection with-header" id="eventsList">
+        <li class="collection-header"><h4><a href="/showbooks/">Show the book database</a></h4></li>
+      </ul>
+      <ul class="collection with-header" id="eventsList">
+        <li class="collection-header"><h4><a href="/showusers/">Show the user database</a></h4></li>
+      </ul>
+      <ul class="collection with-header" id="eventsList">
+        <li class="collection-header"><h4><a href="/clearbooks/">Reset the book database</a></h4></li>
+      </ul>
+
+      <div class="card">
+        <div class="card-content">
+          <h5> Add a new user </h5>
+          <form method="post">
+            {% if error %}<p class="error-msg">*{{error}}</p>{% endif %}
+            <div class="input-field">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="username" type="text" name="username" size="30" value="{{ request.form.username }}" class="validate">
+              <label for="username">Username</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">vpn_key</i>
+              <input id="password" name="password" size="30" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+
+            <br/>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <ul class="collection with-header" id="eventsList">
+        <li class="collection-header"><h4> {{ users|length }} Users </h4></li>
+      </ul>
+
+      <div class="row">
+        {% for user in users %}
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <div class="row" style="margin-bottom:0px;">
+                  <div class="col s8">
+                    <p><b>{{ user.username }}</b></p>
+                    <a href="{{ url_for('remove', username=user.username) }}">
+                      <button style="margin-top:5px;" class="btn waves-effect waves-light">
+                        Remove
+                        <i class="material-icons left">delete</i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      <br/>
+    </div>
+  </div>
+</div>
+
+{% endwith %}
+{% endblock %}

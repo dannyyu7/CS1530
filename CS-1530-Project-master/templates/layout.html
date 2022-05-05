@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %}Welcome{% endblock %} | Hillman Social</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Import a CSS framework -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Google icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<nav>
+  <div class="nav-wrapper">
+    <a href="/login/" class="brand-logo">Hillman Social</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/timeline/">Timeline<i class="material-icons right">wysiwyg</i></a></li>
+      <li><a href="/books/">Books<i class="material-icons right">menu_book</i></a></li>
+      {% if session['username']=='admin' %}
+        <li><a href="/manage/">Manage<i class="material-icons right">admin_panel_settings</i></a></li>
+      {% endif %}
+      <li><a href="/logout/">Logout<i class="material-icons right">exit_to_app</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<body>
+  {% block body %}{% endblock %}
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='script.js')}}"></script>
+
+</html>

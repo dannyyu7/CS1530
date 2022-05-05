@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block body %}
+{% with messages = get_flashed_messages() %}
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      {% if messages %}
+        <br/><br/><br/>
+        <div class="card">
+          <div class="card-content">
+            {% for message in messages %}
+              <h2 class="flash-msg">{{ message }}</h2>
+            {% endfor %}
+      {% else %}
+        <h1 class="register-title">Register New User</h1>
+        <form method="post">
+          {% if error %}<p class="error-msg">*{{error}}</p>{% endif %}
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="username" type="text" name="username" size="30" value="{{ request.form.username }}" class="validate">
+            <label for="username">Username</label>
+          </div>
+
+          <div class="input-field">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="password" name="password" size="30" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+
+          <br/>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endwith %}
+{% endblock %}

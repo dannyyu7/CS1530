@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %}showbooks{% endblock %}
+{% block body %}
+{% for book in books %}
+  <p>TITLE="{{ book.title }}" | AUTHOR="{{ book.author }}" | GENRE="{{ book.genre }}" | IMG="{{ book.image }}" | RATING={{ book.rating }}</p>
+{% endfor %}
+{% endblock %}
